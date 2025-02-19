@@ -1,3 +1,3 @@
 export function Blog() {
-  return <div>Hello, Blog!</div>
+  return <div className="font-sans">Hello, Blog!</div>
 }

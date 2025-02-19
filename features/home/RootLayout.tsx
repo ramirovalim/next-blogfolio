@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
+import Header from "@/components/Header";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+export const geist = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Ramiro Valim",
-};
+export const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
@@ -19,9 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.variable} antialiased`}
+        className={`${geist.variable} ${geistMono.variable} antialiased h-screen flex flex-col justify-start`}
       >
-        {children}
+        <Header />
+        <main className="flex-1">{children}</main>
       </body>
     </html>
   );
